@@ -49,10 +49,18 @@
       box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
       display: inline-block;
       text-decoration: none;
+      margin: 10px;
     }
     .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 255, 157, 0.6);
+    }
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
     }
     .instructions {
       background: rgba(0, 30, 60, 0.6);
@@ -77,24 +85,61 @@
 </head>
 <body>
   <div class="container">
-    <h1>🌌 Виртуальная Астрономия с Меланией</h1>
-    <p>Исследуйте звёздное небо в VR-очках. Просто нажмите кнопку ниже, чтобы запустить интерактивную карту звёзд!</p>
+    <h1>🌌 Виртуальная Астрономия</h1>
+    <p>Исследуйте звёздное небо в VR-очках через мобильное приложение Stellarium!</p>
     
-    <a href="https://stellarium-web.org/" target="_blank" class="btn">
-      🔭 ЗАПУСТИТЬ STARS
-    </a>
+    <div class="btn-container">
+      <button onclick="launchApp()" class="btn">
+        📱 ОТКРЫТЬ В ПРИЛОЖЕНИИ
+      </button>
+      <a href="https://stellarium-web.org/" target="_blank" class="btn" style="background: #6a11cb; font-size: 1.1em;">
+        🌐 ВЕБ-ВЕРСИЯ
+      </a>
+    </div>
     
     <div class="instructions">
       <h2>📱 Как использовать с VR-очками:</h2>
       <ol>
-        <li>Откройте этот сайт на телефоне</li>
-        <li>Нажмите кнопку "ЗАПУСТИТЬ STARS"</li>
-        <li>В Stellarium нажмите иконку 👓 (VR) внизу</li>
-        <li>Выберите "Cardboard VR"</li>
+        <li><strong>Установите приложение Stellarium:</strong><br>
+          <a href="https://play.google.com/store/apps/details?id=com.stellarium" target="_blank" style="color:#00ff9d">Android</a> | 
+          <a href="https://apps.apple.com/app/stellarium-mobile/id1400517835" target="_blank" style="color:#00ff9d">iOS</a>
+        </li>
+        <li>Нажмите кнопку «ОТКРЫТЬ В ПРИЛОЖЕНИИ» выше</li>
+        <li>В приложении нажмите иконку 👓 (VR) внизу</li>
+        <li>Выберите «Cardboard VR»</li>
         <li>Вставьте телефон в картонные очки</li>
         <li>Поверните голову, чтобы исследовать космос!</li>
       </ol>
     </div>
   </div>
+
+  <script>
+    function launchApp() {
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      
+      if (isAndroid) {
+        // Пытаемся открыть приложение Android
+        window.location.href = "stellarium://";
+        setTimeout(() => {
+          // Если приложение не открылось — перенаправляем в Play Market
+          if (!document.hidden) {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.stellarium";
+          }
+        }, 1000);
+      } else if (isiOS) {
+        // Пытаемся открыть приложение iOS
+        window.location.href = "stellarium://";
+        setTimeout(() => {
+          // Если приложение не открылось — перенаправляем в App Store
+          if (!document.hidden) {
+            window.location.href = "https://apps.apple.com/app/stellarium-mobile/id1400517835";
+          }
+        }, 1000);
+      } else {
+        alert("Эта функция работает только на мобильных устройствах. Откройте сайт на телефоне!");
+      }
+    }
+  </script>
 </body>
 </html>
