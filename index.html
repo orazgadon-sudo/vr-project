@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VR Астрономия</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      background: rgba(0, 0, 30, 0.7);
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(0, 200, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      color: #00ffc8;
+      margin-bottom: 20px;
+      font-size: 2.5em;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .btn {
+      background: linear-gradient(45deg, #00ff9d, #00a8ff);
+      color: #000;
+      border: none;
+      padding: 18px 45px;
+      font-size: 1.4em;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 255, 157, 0.6);
+    }
+    .instructions {
+      background: rgba(0, 30, 60, 0.6);
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px 15px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      .btn {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌌 Виртуальная Астрономия с Меланией</h1>
+    <p>Исследуйте звёздное небо в VR-очках. Просто нажмите кнопку ниже, чтобы запустить интерактивную карту звёзд!</p>
+    
+    <a href="https://stellarium-web.org/" target="_blank" class="btn">
+      🔭 ЗАПУСТИТЬ STARS
+    </a>
+    
+    <div class="instructions">
+      <h2>📱 Как использовать с VR-очками:</h2>
+      <ol>
+        <li>Откройте этот сайт на телефоне</li>
+        <li>Нажмите кнопку "ЗАПУСТИТЬ STARS"</li>
+        <li>В Stellarium нажмите иконку 👓 (VR) внизу</li>
+        <li>Выберите "Cardboard VR"</li>
+        <li>Вставьте телефон в картонные очки</li>
+        <li>Поверните голову, чтобы исследовать космос!</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
