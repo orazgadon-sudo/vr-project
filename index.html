@@ -19,8 +19,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
     }
     .container {
       max-width: 900px;
@@ -101,10 +101,18 @@
       margin-top: 20px;
       padding: 15px;
       border-radius: 15px;
-      background: rgba(0, 40, 80, 0.6);
+      background: rgba(40, 80, 0, 0.6);
       font-size: 1.1em;
-      color: #4dff4d;
-      box-shadow: 0 0 10px rgba(77, 255, 77, 0.3);
+      color: #88ff88;
+      box-shadow: 0 0 10px rgba(136, 255, 136, 0.3);
+    }
+    .app-info {
+      background: rgba(60, 20, 80, 0.6);
+      border-radius: 15px;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 1.1em;
+      color: #d4aaff;
     }
     @media (max-width: 600px) {
       .container {
@@ -130,21 +138,28 @@
 <body>
   <div class="container">
     <h1>🌌 ВИРТУАЛЬНАЯ АСТРОНОМИЯ</h1>
-    <p>Изучайте звёздное небо в VR-очках с помощью приложения Stellarium</p>
+    <p>Изучайте звёздное небо в VR-очках с помощью приложения Stellarium Plus</p>
     
-    <button class="btn" onclick="launchStellarium()">
-      🚀 ЗАПУСТИТЬ STARS VR
-    </button>
+    <a href="https://play.google.com/store/apps/details?id=com.noctuasoftware.stellarium_plus&hl=gsw" 
+       target="_blank" 
+       class="btn">
+      📱 УСТАНОВИТЬ STELLARIUM PLUS
+    </a>
     
     <div class="status">
-      ✅ Приложение Stellarium установлено на этом устройстве
+      ✅ Работает на всех Android устройствах
+    </div>
+    
+    <div class="app-info">
+      <strong>Stellarium Plus</strong> — профессиональное приложение для изучения звёздного неба с поддержкой VR-очков
     </div>
     
     <div class="instructions">
       <h2>📱 ИНСТРУКЦИЯ ДЛЯ ДЕМОНСТРАЦИИ:</h2>
       <ol>
-        <li>Нажмите кнопку «ЗАПУСТИТЬ STARS VR» выше</li>
-        <li>Приложение Stellarium откроется автоматически</li>
+        <li>Нажмите кнопку «УСТАНОВИТЬ STELLARIUM PLUS» выше</li>
+        <li>Установите приложение из Google Play Store</li>
+        <li>Откройте Stellarium Plus на телефоне</li>
         <li>Нажмите иконку 👓 (VR) в правом нижнем углу</li>
         <li>Выберите «Cardboard VR» из меню</li>
         <li>Вставьте телефон в картонные VR-очки</li>
@@ -156,35 +171,5 @@
       <p>Для школьного проекта | 2025</p>
     </div>
   </div>
-
-  <script>
-    function launchStellarium() {
-      try {
-        // Простой запуск для Android (приложение уже установлено)
-        window.location.href = "stellarium://";
-        
-        // Если через 2 секунды страница не закрылась - значит приложение не запустилось
-        setTimeout(function() {
-          if (!document.hidden) {
-            alert("❌ Не удалось запустить Stellarium.\n\nПроверьте:\n1. Приложение установлено\n2. Версия приложения поддерживает VR\n3. Разрешения приложения разрешены");
-          }
-        }, 2000);
-      } catch (e) {
-        alert("Ошибка запуска: " + e.message);
-      }
-    }
-    
-    // Автоматически скрываем статусную строку через 5 секунд
-    setTimeout(function() {
-      const status = document.querySelector('.status');
-      if (status) {
-        status.style.opacity = '0.7';
-        status.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          status.style.display = 'none';
-        }, 300);
-      }
-    }, 5000);
-  </script>
 </body>
 </html>
